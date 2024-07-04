@@ -5,6 +5,8 @@ import com.nttdata.page.MyStorePage;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 
+import java.util.Objects;
+
 public class MyStoreStep {
     WebDriver driver;
     MyStorePage page;
@@ -27,9 +29,20 @@ public class MyStoreStep {
         Assertions.assertEquals("Cerrar sesión", page.getCerrarSesion());
     }
 
-    public void navegarCategorias() throws InterruptedException {
-        page.clickClothes();
-        page.clickMen();
+    public void navegarCategorias(String cat,String subcat) throws InterruptedException {
+        if(Objects.equals(cat, "CLOTHES")){
+            page.clickClothes();
+        } else if (Objects.equals(cat, "ACCESORIOS")) {
+            page.clickAcc();
+        }
+
+        if(Objects.equals(subcat, "MEN")){
+            page.clickMen();
+        } else if (Objects.equals(cat, "WOMEN")) {
+            page.clickWomen();
+        }
+
+
     }
     public void agregarCantidadProducto(int cant) throws InterruptedException {
         page.clickPrimerElemento();

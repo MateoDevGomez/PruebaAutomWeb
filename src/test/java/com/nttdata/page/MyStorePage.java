@@ -17,7 +17,9 @@ public class MyStorePage {
     private  By btnIniciarSesion =  By.xpath("//button[@id='submit-login']");
     private  By textCerrarSesion =  By.xpath("//a[contains(@class, 'logout')]");
     private  By textClothes =  By.xpath("//a[contains(@href, 'clothes')]");
+    private  By textAcc =  By.xpath("/html/body/main/header/div[2]/div/div[1]/div[2]/div[1]/ul/li[2]/a");
     private  By textMen =  By.xpath("/html/body/main/section/div/div/div[1]/div[1]/ul/li[2]/ul/li[1]/a");
+    private  By textWomen =  By.xpath("/html/body/main/section/div/div/div[1]/div[1]/ul/li[2]/ul/li[2]/a");
     private  By elementMen =  By.xpath("//h2[@class='h3 product-title']");
     private  By inputCantidad =  By.xpath("//input[@class='input-group form-control']");
     private  By btnAgregarCarrito =  By.xpath("//button[@class='btn btn-primary add-to-cart']");
@@ -75,10 +77,22 @@ public class MyStorePage {
         WebElement text = driver.findElement(textClothes);
         text.click();
     }
+    public void clickAcc() throws InterruptedException {
+        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(textAcc));
+        WebElement text = driver.findElement(textAcc);
+        text.click();
+    }
     public void clickMen() throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(20));
         wait.until(ExpectedConditions.elementToBeClickable(textMen));
         WebElement text = driver.findElement(textMen);
+        text.click();
+    }
+    public void clickWomen() throws InterruptedException {
+        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.elementToBeClickable(textWomen));
+        WebElement text = driver.findElement(textWomen);
         text.click();
     }
     public void clickPrimerElemento() throws InterruptedException {

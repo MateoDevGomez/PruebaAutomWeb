@@ -70,9 +70,9 @@ public class MyStoreStepDef {
     }
 
     @When("navego a la categoria {string} y subcategoria {string}")
-    public void navegoALaCategoriaYSubcategoria(String arg0, String arg1) throws InterruptedException {
+    public void navegoALaCategoriaYSubcategoria(String cat, String subcat) throws InterruptedException {
         mystore = new MyStoreStep(driver);
-        mystore.navegarCategorias();
+        mystore.navegarCategorias(cat,subcat);
         screenShot();
     }
 
