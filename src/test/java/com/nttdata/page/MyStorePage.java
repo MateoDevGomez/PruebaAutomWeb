@@ -29,6 +29,8 @@ public class MyStorePage {
     private  By btnFinCompra =  By.xpath("/html/body/div[1]/div/div/div[2]/div/div[2]/div/div/a");
     private  By titleCarrito =  By.xpath("//h1[@class='h1']");
     private  By textMontoCarrito =  By.xpath("/html/body/main/section/div/div/div/section/div/div[2]/div[1]/div[1]/div[2]/div[2]/span[2]");
+    private  By textUsuario =  By.xpath("/html/body/main/header/nav/div/div/div[1]/div[2]/div[3]/div/a[2]/span");
+    private  By titleCuenta =  By.xpath("//h1");
 
     public MyStorePage(WebDriver driver) {
         this.driver = driver;
@@ -70,6 +72,21 @@ public class MyStorePage {
         String textclean = text.getText();
         return textclean.substring(1).trim();
     }
+
+    public void clickUsuario() throws InterruptedException {
+        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.elementToBeClickable(textUsuario));
+        WebElement text = driver.findElement(textUsuario);
+        text.click();
+    }
+
+    public String getTituloCuenta() throws InterruptedException {
+        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(titleCuenta));
+        WebElement text= driver.findElement(titleCuenta);
+        return text.getText();
+    }
+
 
     public void clickClothes() throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));

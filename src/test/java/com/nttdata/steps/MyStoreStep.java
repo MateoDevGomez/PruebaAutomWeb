@@ -26,7 +26,12 @@ public class MyStoreStep {
         page.clickIniciaSesionCuenta();
     }
     public void validarInicioSesion() throws InterruptedException {
+        //Validacion Boton Cerrar Sesion
         Assertions.assertEquals("Cerrar sesión", page.getCerrarSesion());
+        //Ingreso a cuenta de Usuario
+        page.clickUsuario();
+        //Validacion que el usuario este logeado a traves del titulo de la cuenta
+        Assertions.assertEquals("Su cuenta", page.getTituloCuenta());
     }
 
     public void navegarCategorias(String cat,String subcat) throws InterruptedException {
